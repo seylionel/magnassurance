@@ -17,8 +17,61 @@ class Quote
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $fileName;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Prospect::class, inversedBy="quotes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $prospect;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Agency::class, inversedBy="quotes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $agency;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->fileName;
+    }
+
+    public function setFileName(string $fileName): self
+    {
+        $this->fileName = $fileName;
+
+        return $this;
+    }
+
+    public function getProspect(): ?Prospect
+    {
+        return $this->prospect;
+    }
+
+    public function setProspect(?Prospect $prospect): self
+    {
+        $this->prospect = $prospect;
+
+        return $this;
+    }
+
+    public function getAgency(): ?Agency
+    {
+        return $this->agency;
+    }
+
+    public function setAgency(?Agency $agency): self
+    {
+        $this->agency = $agency;
+
+        return $this;
     }
 }
