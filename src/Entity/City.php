@@ -39,10 +39,16 @@ class City
      */
     private $nearbyAgencies;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Prospect::class, mappedBy="city")
+     */
+    private $prospects;
+
     public function __construct()
     {
         $this->agencies = new ArrayCollection();
         $this->nearbyAgencies = new ArrayCollection();
+        $this->prospects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -128,6 +134,37 @@ class City
         if ($this->nearbyAgencies->contains($nearbyAgency)) {
             $this->nearbyAgencies->removeElement($nearbyAgency);
             $nearbyAgency->removeCity($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Prospect[]
+     */
+    public function getProspects(): Collection
+    {
+        return $this->prospects;
+    }
+
+    public function addProspect(Prospect $prospect): self
+    {
+        if (!$this->prospects->contains($prospect)) {
+            $this->prospects[] = $prospect;
+            $prospect->setCity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProspect(Prospect $prospect): self
+    {
+        if ($this->prospects->contains($prospect)) {
+            $this->prospects->removeElement($prospect);
+            // set the owning side to null (unless already changed)
+            if ($prospect->getCity() === $this) {
+                $prospect->setCity(null);
+            }
         }
 
         return $this;

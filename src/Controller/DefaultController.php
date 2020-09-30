@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Cars;
+use App\Entity\Car;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,14 +14,14 @@ class DefaultController extends AbstractController
     public function index()
     {
 
-        $cars = $this->getDoctrine()
+        $car = $this->getDoctrine()
 
-            /** @var Cars[] $cars */
-            ->getRepository(Cars::class)
+            /** @var Car[] $car */
+            ->getRepository(Car::class)
             ->findAll();
 
         return $this->render("default/index.html.twig",[
-            "cars" => $cars
+            "car" => $car
         ]);
     }
 

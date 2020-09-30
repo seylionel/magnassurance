@@ -34,6 +34,11 @@ class Quote
      */
     private $agency;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $quoteValidation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Quote
     public function setAgency(?Agency $agency): self
     {
         $this->agency = $agency;
+
+        return $this;
+    }
+
+    public function getQuoteValidation(): ?bool
+    {
+        return $this->quoteValidation;
+    }
+
+    public function setQuoteValidation(?bool $quoteValidation): self
+    {
+        $this->quoteValidation = $quoteValidation;
 
         return $this;
     }

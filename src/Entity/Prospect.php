@@ -64,6 +64,12 @@ class Prospect
      */
     private $quotes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=City::class, inversedBy="prospects")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $city;
+
     public function __construct()
     {
         $this->cars = new ArrayCollection();
@@ -98,6 +104,7 @@ class Prospect
 
         return $this;
     }
+
 
     public function getBirthdate(): ?\DateTimeInterface
     {
@@ -217,6 +224,18 @@ class Prospect
                 $quote->setProspect(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCity(): ?City
+    {
+        return $this->city;
+    }
+
+    public function setCity(?City $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }
