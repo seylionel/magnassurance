@@ -31,12 +31,5 @@ class CityFixtures extends Fixture
 
     }
 
-    public function getDependencies()
-    {
-        return [
-            ProspectFixtures::class,
-        ];
-    }
-
 
 }

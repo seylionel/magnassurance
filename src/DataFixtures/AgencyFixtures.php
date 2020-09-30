@@ -37,7 +37,8 @@ class AgencyFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            AgencyFixtures::class,
+            CityFixtures::class,
+            UserFixtures::class
         ];
     }
 

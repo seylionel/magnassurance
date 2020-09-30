@@ -61,6 +61,16 @@ class User implements UserInterface
      */
     private $birthdate;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $phoneNumber;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $credit;
+
     public function __construct()
     {
         $this->agencies = new ArrayCollection();
@@ -239,6 +249,30 @@ class User implements UserInterface
     public function setBirthdate(?\DateTimeInterface $birthdate): self
     {
         $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(?string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getCredit(): ?int
+    {
+        return $this->credit;
+    }
+
+    public function setCredit(int $credit): self
+    {
+        $this->credit = $credit;
 
         return $this;
     }
