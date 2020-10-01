@@ -27,8 +27,19 @@ class UserFixtures extends Fixture
         $user1-> setFirstName("Mathieu");
         $user1->setPassword($this->encoder->encodePassword($user1, "1234"));
         $user1->setEmail("seymourlionel97@gmail.com");
+        $user1->setCredit(400);
         $manager->persist($user1);
-        $this->addReference("user-jmathieu", $user1);
+        $this->addReference("user1-jmathieu", $user1);
+
+        $user2 = new User();
+        $user2-> setBirthdate(new \DateTime("02-04-1955"));
+        $user2-> setLastName("Rutz");
+        $user2-> setFirstName("Franck");
+        $user2->setPassword($this->encoder->encodePassword($user1, "1234"));
+        $user2->setEmail("kraksize@gmail.com");
+        $user2->setCredit(278);
+        $manager->persist($user2);
+        $this->addReference("user2-rfranck", $user2);
 
 
 

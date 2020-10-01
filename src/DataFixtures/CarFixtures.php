@@ -19,7 +19,7 @@ class CarFixtures extends Fixture implements DependentFixtureInterface
         $cars1 -> setBrand("Peugeot");
         $cars1 -> setPower('6');
         $cars1 -> setGas('essence');
-        $cars1 -> setRegistration('essence');
+        $cars1 -> setRegistration('AXE-245-XDE');
         $cars1 -> setInsuranceExist(true);
         $cars1 -> setProspect($this->getReference("name-prospect1"));
         $manager->persist($cars1);
