@@ -2,31 +2,27 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Magn'assurance{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, user-scalable=0">
+    <title>{% block title %}Magn'assurance : Comparateur d'assurance{% endblock %}
+    </title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-{% block header %}
-    <header>
-        <div>
-        <h1>Magn'assurance</h1>
-        </div>
-
-
-    </header>
-{% endblock %}
-
 
 
 <body>
-{% block body %}{% endblock %}
+<div class="container-fluid">
+    {% block body %}{% endblock %}
+    <div class="row">
+        <footer>
+            {% include 'default/_footer.html.twig' %}
+            © Magn'assurance 2020
+        </footer>
+    </div>
+</div>
 
 </body>
 
-
-<footer>
-    © Magn'assurance 2020
-</footer>
 
 </html>

@@ -1,15 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Magn'assurance : Comparateur d'assurance{% endblock %}
 
 {% block body %}
+
     <header>
-        <div>
-        {% include 'default/_menu.html.twig' %}
+        <div class="row">
+            <div class="col-sm-9"><h1>Magn'assurance</h1></div>
+            <div class="col-sm-3"><div>Connexion</div></div>
+            <div class="col-sm-12">{% include 'default/_menu.html.twig' %}</div>
         </div>
     </header>
+        <div class="row">
 
-    <section>
-        {% include 'default/_main.html.twig' %}
-    </section>
+                {% include 'default/_main.html.twig' %}
+
+        </div>
+</div>
+
+
 {% endblock %}
