@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>{% block title %}Magn'assurance : Comparateur d'assurance{% endblock %}
     </title>
     {% block stylesheets %}
@@ -12,16 +13,23 @@
 
 
 <body>
-<div class="container-fluid">
-    {% block body %}{% endblock %}
-    <div class="row">
-        <footer>
-            {% include 'default/_footer.html.twig' %}
-            © Magn'assurance 2020
-        </footer>
-    </div>
-</div>
 
+
+<div class="container-fluid">
+
+        {% block body %}
+
+
+        {% endblock %}
+
+
+
+</div>
+{% include 'default/_footer.html.twig' %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
 </body>
 
 
