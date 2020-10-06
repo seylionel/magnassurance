@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Car{% endblock %}
+
+{% block body %}
+    <h1>Créez votre Devis automobile</h1>
+
+    {{ include('car/_form.html.twig') }}
+
+    <a href="{{ path('car_index') }}">Retour</a>
+{% endblock %}
