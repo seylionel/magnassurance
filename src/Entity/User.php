@@ -74,7 +74,7 @@ class User implements UserInterface
     private $credit;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $isVerified = false;
 
