@@ -1,5 +1,5 @@
 import 'jquery';
-import 'popper.js'
+import 'popper.js';
 
 /*
  * Welcome to your app's main JavaScript file!
@@ -16,11 +16,21 @@ import '../css/app.scss';
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
+
+$(document).ready(function () {
+    $('.top').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 3
+    });
+});
+
 $('.listonglet li').mouseenter(function (){
     $(this).children('.deroulant').css('display','block')
 })
 $('.listonglet li').mouseleave(function (){
     $(this).children('.deroulant').css('display','none')
 })
+
 
 

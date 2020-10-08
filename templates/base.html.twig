@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+
     <title>{% block title %}Magn'assurance : Comparateur d'assurance{% endblock %}
     </title>
     {% block stylesheets %}
@@ -28,9 +31,14 @@
 {% include 'default/_footer.html.twig' %}
 
 {% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
+
+
 </body>
+
 
 
 </html>

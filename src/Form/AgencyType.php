@@ -14,7 +14,6 @@ class AgencyType extends AbstractType
         $builder
             ->add('name')
             ->add('phoneNumber')
-            ->add('user')
             ->add('city')
             ->add('cities')
         ;

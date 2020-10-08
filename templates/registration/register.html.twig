@@ -10,21 +10,6 @@
     <h1>Register</h1>
 <div class="container-fluid"></div>
     {{ form_start(registrationForm) }}
-    {{ dump() }}
-        {{ form_row(registrationForm.firstName) }}
-        {{ form_row(registrationForm.lastName) }}
-        {{ form_row(registrationForm.phoneNumber) }}
-        {{ form_row(registrationForm.credit) }}
-    <div class="form-group">
-        <label for="{{ registrationForm.agencies.vars.id }}">Agence</label>
-        <input
-                type="text"
-                class="form-control" id="{{ registrationForm.agencies.vars.id }}"
-                name="{{ registrationForm.agencies.vars.full_name }}"
-                value="{{ registrationForm.vars.value.agencies}}"
-
-        >
-    </div>
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
@@ -32,7 +17,7 @@
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn">Register</button>
-    {% do registrationForm.agencies.setRendered %}
+
 
     {{ form_end(registrationForm) }}
 

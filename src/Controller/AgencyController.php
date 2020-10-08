@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/agency")
+ * @Route("/profile/agency")
  */
 class AgencyController extends AbstractController
 {
@@ -21,7 +21,7 @@ class AgencyController extends AbstractController
     public function index(AgencyRepository $agencyRepository): Response
     {
         return $this->render('agency/index.html.twig', [
-            'agencies' => $agencyRepository->findAll(),
+            'agencies' => $this->getUser()->getAgencies(),
         ]);
     }
 
@@ -36,6 +36,7 @@ class AgencyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $agency->setUser($this->getUser()); // Associer la nouvelle agence à l'utilisateur connecté
             $entityManager->persist($agency);
             $entityManager->flush();
 
