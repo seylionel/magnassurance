@@ -22,6 +22,8 @@ $(document).ready(function () {
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
+        adaptiveHeight: true,
+
 
         prevArrow:"<div class='test'><span class='myarrow'><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i></span></div>",
         nextArrow:"<div class='test2'></div><span class='myOtherarrow'><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></span>"
@@ -38,3 +40,4 @@ $('.listonglet li').mouseenter(function (){
 $('.listonglet li').mouseleave(function (){
     $(this).children('.deroulant').css('display','none')
 })
+

@@ -26,6 +26,18 @@ class CarController extends AbstractController
     }
 
     /**
+     * @Route("/carChoice", name="car_choice", methods={"GET"})
+     */
+    public function choice(CarRepository $carRepository): Response
+    {
+        return $this->render('category/car.html.twig', [
+            'cars' => $carRepository->findAll(),
+        ]);
+    }
+
+
+
+    /**
      * @Route("/new", name="car_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

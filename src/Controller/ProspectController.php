@@ -26,6 +26,16 @@ class ProspectController extends AbstractController
     }
 
     /**
+     * @Route("/prospectForm", name="prospectForm", methods={"GET"})
+     */
+    public function prospect(ProspectRepository $prospectRepository): Response
+    {
+        return $this->render('prospect/_form.html.twig', [
+            'prospect' => $prospectRepository->findAll(),
+        ]);
+    }
+
+    /**
      * @Route("/new", name="prospect_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
