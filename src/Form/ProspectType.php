@@ -17,8 +17,6 @@ class ProspectType extends AbstractType
             ->add('birthdate')
             ->add('email')
             ->add('phoneNumber')
-            ->add('guid')
-            ->add('createdAt')
             ->add('city')
         ;
     }

@@ -1,94 +1,17 @@
-<nav>
-
-        <ul class="listonglet">
-            <li>
-                <div class="onglet">
-                    Vehicule
-                </div>
-                <div class="deroulant">
-                    <ul class="listoption">
-                        <li class="option">
-                            <a href="{{ path('car_new') }}">assurance automobile</a>
-
-                        </li>
-                        <li class="option">assurance 2 roues</li>
-                        <li class="option">assurance autres véhicules</li>
-                    </ul>
+<nav class="navbar navbar-expand-sm navbar-light info-color">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Assurance automobile</a>
+                <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item waves-effect waves-light" href="{{ path('prospect_new') }}">assurance automobile</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">assurance 2 roues</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">assurance autres véhicules</a>
                 </div>
             </li>
-            <li>
-                <div class="onglet">
-                    Habitations
-                </div>
-                <div class="deroulant">
-                    <ul class="listoption">
-                        <li class="option">assurance habitations</li>
-
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <div class="onglet">
-                    Santé-prévoyance
-                </div>
-                <div class="deroulant">
-                    <ul class="listoption">
-                        <li class="option">Véhicules</li>
-                        <li class="option">Habitations</li>
-                        <li class="option">Santé-prévoyance</li>
-                        <li class="option">Accidents de la vie</li>
-                        <li class="option">Epargne-retraite</li>
-                        <li class="option">Qui sommes-nous?</li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <div class="onglet">
-                    Protection de la personne
-                </div>
-                <div class="deroulant">
-                    <ul class="listoption">
-                        <li class="option">Véhicules</li>
-
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <div class="onglet">
-                    Habitations
-                </div>
-                <div class="deroulant">
-                    <ul class="listoption">
-                        <li class="option2">Véhicules</li>
-                        <li class="option2">Habitations</li>
-                        <li class="option2">Santé-prévoyance</li>
-                        <li class="option2">Accidents de la vie</li>
-                        <li class="option2">Epargne-retraite</li>
-                        <li class="option2">Qui sommes-nous?</li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <div class="onglet">
-                    Epargne et retraite
-                </div>
-                <div class="deroulant">
-                    <ul class="listoption">
-                        <li class="option2">Véhicules</li>
-                        <li class="option2">Habitations</li>
-                        <li class="option2">Santé-prévoyance</li>
-                        <li class="option2">Accidents de la vie</li>
-                        <li class="option2">Epargne-retraite</li>
-                        <li class="option2">Qui sommes-nous?</li>
-                    </ul>
-                </div>
-            </li>
-            {# <li>Véhicules</li>
-            <li>Habitations et biens</li>
-            <li>Santé et prévoyance</li>
-            <li>Accidents de la vie</li>
-            <li>Epargne et retraite</li>
-            <li>Qui sommes-nous?</li> #}
         </ul>
-
+    </div>
 </nav>

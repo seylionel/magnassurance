@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+
+use App\Entity\Prospect;
 use App\Form\CarType;
 use App\Repository\CarRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * @Route("/car")
@@ -22,6 +25,7 @@ class CarController extends AbstractController
     {
         return $this->render('car/index.html.twig', [
             'cars' => $carRepository->findAll(),
+
         ]);
     }
 
@@ -43,13 +47,18 @@ class CarController extends AbstractController
     public function new(Request $request): Response
     {
         $car = new Car();
+        $prospect = new Prospect();
+
+
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($car);
             $entityManager->flush();
+
 
             // TODO: rechercher agences à notifier et les associer au prospect et décrémenter/ boucler sur toutes les gences qui ont des crédits et vérifier pour chaque agences, s'il elles sont associeé à la ville du prospect
 

@@ -3,12 +3,17 @@
 namespace App\Entity;
 
 use App\Repository\ProspectRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ProspectRepository::class)
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"guid"},
+ *     message="already in use.")
  */
 class Prospect
 {
@@ -46,6 +51,7 @@ class Prospect
 
     /**
      * @ORM\Column(type="guid")
+     *
      */
     private $guid;
 
@@ -164,6 +170,12 @@ class Prospect
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist() {
+        $this->setCreatedAt(new \DateTime());
     }
 
     /**

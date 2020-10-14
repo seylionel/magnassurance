@@ -3,6 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Agency;
+use App\Entity\Prospect;
+use App\Entity\User;
+use App\Entity\City;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
@@ -36,6 +39,10 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Agences', 'icon class', Agency::class);
+        yield MenuItem::linkToCrud('Prospect', 'icon class', Prospect::class);
+        yield MenuItem::linkToCrud('User', 'icon class', User::class);
+        yield MenuItem::linkToCrud('City', 'icon class', User::class);
+
     }
     public function configureUserMenu(UserInterface $user): UserMenu
     {

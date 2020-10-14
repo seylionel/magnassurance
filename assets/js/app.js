@@ -1,5 +1,7 @@
 import 'jquery';
 import 'popper.js';
+import 'bootstrap';
+import 'slick-carousel';
 
 /*
  * Welcome to your app's main JavaScript file!
@@ -26,7 +28,7 @@ $(document).ready(function () {
 
 
         prevArrow:"<div class='test'><span class='myarrow'><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i></span></div>",
-        nextArrow:"<div class='test2'></div><span class='myOtherarrow'><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></span>"
+        nextArrow:"<div class='test2'><span class='myOtherarrow'><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></span></div>"
 
     });
 });

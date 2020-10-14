@@ -25,31 +25,34 @@ class ProspectController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/prospectForm", name="prospectForm", methods={"GET"})
-     */
-    public function prospect(ProspectRepository $prospectRepository): Response
-    {
-        return $this->render('prospect/_form.html.twig', [
-            'prospect' => $prospectRepository->findAll(),
-        ]);
-    }
 
     /**
      * @Route("/new", name="prospect_new", methods={"GET","POST"})
      */
+
+
     public function new(Request $request): Response
     {
+
+
+
         $prospect = new Prospect();
         $form = $this->createForm(ProspectType::class, $prospect);
         $form->handleRequest($request);
 
+
+
+
+
         if ($form->isSubmitted() && $form->isValid()) {
+            $prospect ->setGuid(
+                $randomNum=substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 8)
+            );
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($prospect);
             $entityManager->flush();
 
-            return $this->redirectToRoute('prospect_index');
+            return $this->redirectToRoute('car_new');
         }
 
         return $this->render('prospect/new.html.twig', [

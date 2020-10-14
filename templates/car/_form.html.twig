@@ -1,91 +1,34 @@
-
-
-<div class="container-fluid">
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+<div class="container">
 {{ form_start(form) }}
-    <div class="form-group">
-        <label for="{{ form.model.vars.id }}">Modèle</label>
-        <input
-                type="text"
-                class="form-control" id="{{ form.model.vars.id }}"
-                name="{{ form.model.vars.full_name }}"
-                value="{{ form.model.vars.value }}"
 
-        >
-    </div>
-        <div class="form-group">
-        <label for="{{ form.brand.vars.id }}">Marque</label>
-        <input
-                type="text"
-                class="form-control" id="{{ form.brand.vars.id }}"
-                name="{{ form.brand.vars.full_name }}"
-                value="{{ form.brand.vars.value }}"
+{{ form_row(form.model,{
+    'attr': {
+        'placeholder':'206'
+    }
+}) }}
+{{ form_row(form.brand,{
+    'attr': {
+        'placeholder':'Peugeot'
+    }
+}) }}
+{{ form_row(form.power,{
+    'attr': {
+        'placeholder':'3'
+    }
+}) }}
+{{ form_row(form.gas,{
+    'attr': {
+        'placeholder':'Essence'
+    }
+}) }}
+{{ form_row(form.registration,{
+    'attr': {
+        'placeholder':'AHT-203-BRC'
+    }
+}) }}
+{{ form_row(form.insuranceExist,{ 'label': 'Etes-vous déjà assuré ?'}) }}
 
-        >
-        </div>
-    <div class="form-group">
-        <label for="{{ form.power.vars.id }}">Puissance Fisale</label>
-        <input
-                type="text"
-                class="form-control" id="{{ form.power.vars.id }}"
-                name="{{ form.power.vars.full_name }}"
-                value="{{ form.power.vars.value }}"
-
-        >
-    </div>
-    <div class="form-group">
-        <label for="{{ form.gas.vars.id }}">Carburant</label>
-        <input
-                type="text"
-                class="form-control" id="{{ form.gas.vars.id }}"
-                name="{{ form.gas.vars.full_name }}"
-                value="{{ form.gas.vars.value }}"
-
-        >
-    </div>
-    <div class="form-group">
-        <label for="{{ form.registration.vars.id }}">Immatriculation</label>
-        <input
-                type="text"
-                class="form-control" id="{{ form.registration.vars.id }}"
-                name="{{ form.registration.vars.full_name }}"
-                value="{{ form.registration.vars.value }}"
-
-        >
-    </div>
-    <div class="form-group">
-        <label for="{{ form.insuranceExist.vars.id }}">Etes-vous déjà assuré?</label>
-        <input
-                type="checkbox"
-                class="form-control" id="{{ form.insuranceExist.vars.id }}"
-                name="{{ form.insuranceExist.vars.full_name }}"
-                value="{{ form.insuranceExist.vars.value }}"
-
-        >
-    </div>
-
-
-
-        {{ form_errors(form.model) }}
-        {% do form.model.setRendered %}
-        {{ form_errors(form.brand) }}
-        {% do form.brand.setRendered %}
-        {{ form_errors(form.power) }}
-        {% do form.power.setRendered %}
-        {{ form_errors(form.gas) }}
-        {% do form.gas.setRendered %}
-        {{ form_errors(form.registration) }}
-        {% do form.registration.setRendered %}
-        {{ form_errors(form.insuranceExist) }}
-        {% do form.insuranceExist.setRendered %}
-        {{ form_errors(form.prospect) }}
-        {% do form.prospect.setRendered %}
-    </div>
-
-
-
-
-
-
-    <button class="btn">{{ button_label|default('Envoyer') }}</button>
+<button class="btn btn-danger">{{ button_label|default('Envoyer') }}</button>
 {{ form_end(form) }}
 </div>

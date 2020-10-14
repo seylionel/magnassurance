@@ -1,3 +1,5 @@
 easy_admin:
   entities :
     - App\entity\Agency
+    - App\entity\User
+    - App\entity\Prospect
