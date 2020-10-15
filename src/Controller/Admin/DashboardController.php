@@ -41,7 +41,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Agences', 'icon class', Agency::class);
         yield MenuItem::linkToCrud('Prospect', 'icon class', Prospect::class);
         yield MenuItem::linkToCrud('User', 'icon class', User::class);
-        yield MenuItem::linkToCrud('City', 'icon class', User::class);
+        yield MenuItem::linkToCrud('City', 'icon class', City::class);
 
     }
     public function configureUserMenu(UserInterface $user): UserMenu

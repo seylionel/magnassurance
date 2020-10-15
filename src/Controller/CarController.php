@@ -42,14 +42,12 @@ class CarController extends AbstractController
 
 
     /**
-     * @Route("/new", name="car_new", methods={"GET","POST"})
+     * @Route("/new/{guid}", name="car_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Prospect $prospect): Response
     {
         $car = new Car();
-        $prospect = new Prospect();
-
-
+        $car->setProspect($prospect);
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
 
@@ -62,7 +60,7 @@ class CarController extends AbstractController
 
             // TODO: rechercher agences à notifier et les associer au prospect et décrémenter/ boucler sur toutes les gences qui ont des crédits et vérifier pour chaque agences, s'il elles sont associeé à la ville du prospect
 
-            return $this->redirectToRoute('car_index');
+            return $this->redirectToRoute('default');
         }
 
         return $this->render('car/new.html.twig', [

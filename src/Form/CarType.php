@@ -19,7 +19,6 @@ class CarType extends AbstractType
             ->add('gas')
             ->add('registration')
             ->add('insuranceExist')
-            ->add('prospect')
         ;
     }
 

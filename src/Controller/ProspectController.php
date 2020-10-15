@@ -29,8 +29,6 @@ class ProspectController extends AbstractController
     /**
      * @Route("/new", name="prospect_new", methods={"GET","POST"})
      */
-
-
     public function new(Request $request): Response
     {
 
@@ -45,14 +43,14 @@ class ProspectController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $prospect ->setGuid(
-                $randomNum=substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 8)
-            );
+            $prospect->setGuid(substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 8));
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($prospect);
+            //TODO: boucle: tant que le GUID existe générer un nouveau guid
             $entityManager->flush();
 
-            return $this->redirectToRoute('car_new');
+            return $this->redirectToRoute('car_new', ['guid' => $prospect->getGuid()]);
         }
 
         return $this->render('prospect/new.html.twig', [

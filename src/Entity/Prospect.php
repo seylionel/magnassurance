@@ -252,8 +252,12 @@ class Prospect
         return $this;
     }
 
+    public function getFullName(): string {
+        return $this->getFirstName() . " " . $this->getLastName();
+    }
+
     public function __toString()
     {
-        return $this->guid;
+        return $this->getFullName();
     }
 }
