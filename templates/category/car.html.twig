@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3 text-center">
+            <a href="{{ path('car_new') }}" class="badge badge-primary">Voiture</a>
+            <a href="{{ path('car_new') }}" class="badge badge-primary">Véhicules 2 roues</a>
+            <a href="{{ path('car_new') }}" class="badge badge-primary">Autres véhicules</a>
+        </div>
+    </div>
+
+{% endblock %}
