@@ -25,7 +25,21 @@ class DashboardController extends AbstractDashboardController
 
     public function index(): Response
     {
+
+
         return $this->render('bundle/EasyAdminBundle/welcome.html.twig');
+        // return parent::index();
+    }
+    /**
+     * @Route("/prospectUser", name="dashboard_user")
+     */
+
+
+    public function userDashboard(): Response
+    {
+
+
+        return $this->render('user/_agencyUserDasboard.html.twig');
         // return parent::index();
     }
 

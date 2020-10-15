@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Prospect;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Repository\ProspectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,8 +37,11 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->persist($user);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('user_index');
@@ -92,3 +97,4 @@ class UserController extends AbstractController
         return $this->redirectToRoute('user_index');
     }
 }
+
