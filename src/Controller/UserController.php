@@ -44,7 +44,7 @@ class UserController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('agency_user',['id'=>$user->getId()]);
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render('user/new.html.twig', [
