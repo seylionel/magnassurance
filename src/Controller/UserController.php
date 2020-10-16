@@ -7,6 +7,7 @@ use App\Entity\Prospect;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Repository\ProspectRepository;
+use PhpParser\Node\Expr\New_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,10 +21,12 @@ class UserController extends AbstractController
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, ProspectRepository $prospectRepository): Response
     {
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
+            'prospects' => $prospectRepository->findAll(),
+
         ]);
     }
 
@@ -53,6 +56,22 @@ class UserController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/infoProspect", name="user_infoProspects", methods={"GET","POST"})
+     */
+    public function getInfo(ProspectRepository $prospectRepository): Response
+    {
+        $prospect = new Prospect();
+        return $this->render('user/_infoProspect.html.twig', [
+                'prospects' => $prospectRepository->findAll(),
+            ]
+
+        );
+
+    }
+
+
     /**
      * @Route("/{id}", name="user_show", methods={"GET"})
      */
@@ -62,6 +81,13 @@ class UserController extends AbstractController
             'user' => $user,
         ]);
     }
+
+
+
+
+
+
+
 
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
@@ -96,5 +122,9 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
+
+
+
+
 }
 

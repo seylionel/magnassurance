@@ -15,6 +15,7 @@ html,body{
   background-color: #a7ffa2;
   height: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .box{
@@ -39,11 +40,20 @@ footer{
 
 }
 
+.card-margin{
+  margin-top: 2rem;
+}
 
 
 
 .main{
   margin-top: 10rem;
+  background-color: #a7ffa2;
+  min-height: 100vh;
+}
+
+.main-user{
+
   background-color: #a7ffa2;
   min-height: 100vh;
 }
