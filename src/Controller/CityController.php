@@ -53,9 +53,7 @@ class CityController extends AbstractController
      */
     public function show(City $city): Response
     {
-        return $this->render('city/show.html.twig', [
-            'city' => $city,
-        ]);
+        return $this->redirectToRoute('user_infoProspects', ['id_city' => $city->getId()]);
     }
 
     /**

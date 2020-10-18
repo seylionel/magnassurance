@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Agency;
 use App\Entity\Prospect;
 use App\Form\ProspectType;
+use App\Repository\AgencyRepository;
+use App\Repository\CityRepository;
 use App\Repository\ProspectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +32,7 @@ class ProspectController extends AbstractController
     /**
      * @Route("/new", name="prospect_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,ProspectRepository $prospectRepository, AgencyRepository $agencyRepository, CityRepository $cityRepository): Response
     {
 
 
@@ -45,6 +48,8 @@ class ProspectController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $prospect->setGuid(substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 8));
 
+
+            //si la city entrée est égale à la city d'une agence alors envoi la city dans cette agence
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($prospect);
             //TODO: boucle: tant que le GUID existe générer un nouveau guid

@@ -22,19 +22,17 @@ class ProspectRepository extends ServiceEntityRepository
     // /**
     //  * @return Prospect[] Returns an array of Prospect objects
     //  */
-    /*
+
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
+        return $this->createQueryBuilder('lastName')
+            ->orderBy('lastName.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Prospect
