@@ -68,11 +68,10 @@
                         </div>
                     </li>
 
-
-                    <!-- Nav Item - User Information -->
+                    {% for SpecificUser in user %}
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.firstName }}</span>
                             <img class="img-profile rounded-circle" src="">
                         </a>
                         <!-- Dropdown - User Information -->
@@ -96,6 +95,7 @@
                             </a>
                         </div>
                     </li>
+                    {% endfor %}
 
                 </ul>
 
@@ -139,7 +139,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <button class="dropdown-item" type="button">Envoyés</button>
-                        <button class="dropdown-item" type="button" ><a href="{{ path('user_infoProspects')}}">Reçus</a></button>
+                        <button class="dropdown-item" type="button" ><a href="{{ path('user_infoProspects') }}">Reçus</a></button>
                     </div>
                 </div>
 

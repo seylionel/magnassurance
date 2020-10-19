@@ -5,8 +5,12 @@ namespace App\Controller;
 use App\Entity\Car;
 
 use App\Entity\Prospect;
+use App\Entity\Quote;
+use App\Entity\User;
 use App\Form\CarType;
+use App\Repository\AgencyRepository;
 use App\Repository\CarRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,7 +48,7 @@ class CarController extends AbstractController
     /**
      * @Route("/new/{guid}", name="car_new", methods={"GET","POST"})
      */
-    public function new(Request $request, Prospect $prospect): Response
+    public function new(Request $request, Prospect $prospect, AgencyRepository $agencyRepository): Response
     {
         $car = new Car();
         $car->setProspect($prospect);
@@ -55,6 +59,21 @@ class CarController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($car);
+
+            // Boucler sur l'ensemble des utilisateurs
+            foreach ($agencyRepository->findAllWithCreditsInCity($prospect->getCity()) as $agency) {
+                // Créer le devis
+                $quote = new Quote();
+                $quote->setProspect($prospect);
+                $quote->setAgency($agency);
+                $entityManager->persist($quote);
+
+                // Décrémenter les crédits restant
+                $user = $agency->getUser();
+                $user->setCredit($user->getCredit() - 1);
+                $entityManager->persist($user);
+            }
+
             $entityManager->flush();
 
 
@@ -65,7 +84,7 @@ class CarController extends AbstractController
             //
             // et décrémenter/ boucler sur toutes les gences qui ont des crédits et vérifier pour chaque agences, s'il elles sont associeé à la ville du prospect
 
-            return $this->redirectToRoute('default');
+            return $this->redirectToRoute('user_infoProspects',['cities' => $prospect->getCity()]);
         }
 
         return $this->render('car/new.html.twig', [

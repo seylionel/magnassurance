@@ -39,7 +39,7 @@ class QuoteController extends AbstractController
             $entityManager->persist($quote);
             $entityManager->flush();
 
-            return $this->redirectToRoute('quote_index');
+            return $this->redirectToRoute('user_infoProspects',['id'=>$quote->getId()]);
         }
 
         return $this->render('quote/new.html.twig', [

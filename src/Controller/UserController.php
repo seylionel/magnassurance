@@ -6,6 +6,7 @@ use App\Entity\City;
 use App\Entity\User;
 use App\Entity\Prospect;
 use App\Form\UserType;
+use App\Repository\QuoteRepository;
 use App\Repository\UserRepository;
 use App\Repository\ProspectRepository;
 use PhpParser\Node\Expr\New_;
@@ -59,20 +60,12 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("infoprospect/{id_city}", name="info_prospect")
-     * @Entity("city", expr="repository.find(id_city)") // <- here the conversion from id_city to a hydrated doctrine entity
+     * @Route("/infoProspect", name="user_infoProspects", methods={"GET","POST"})
      **/
-    public function getInfo(City $city,ProspectRepository $prospectRepository, Request $request): Response
+    public function getInfo(): Response
     {
 
-        $peopleOfCity = $city->getProspects();
-
-        return $this->render('user/_infoProspect.html.twig', [
-                'prospects' => $prospectRepository->findAll(),
-            ]
-
-        );
-
+        return $this->render('user/_infoProspect.html.twig');
     }
 
 
@@ -87,8 +80,22 @@ class UserController extends AbstractController
     }
 
 
+/*    ("/infoProspect/{id_city}", name="user_infoProspects", methods={"GET","POST"})
+   ("city", expr="repository.find(id_city)")
+
+    public function getInfo(City $city,ProspectRepository $prospectRepository): Response
+    {
+        $peopleOfCity = $city->getProspects();
+
+        return $this->render('user/_infoProspect.html.twig', [
+                "people" => $peopleOfCity
 
 
+            ]
+
+        );
+
+    }*/
 
 
 

@@ -5,9 +5,9 @@
 
     <header>
         <div class="row">
-            <div class="col-sm-4"><h1>Magn'assurance</h1></div>
-            <div class="col-sm-8 text-right">
 
+            <div class="col-sm-4 "><img src="{{ asset('build/images/logo5.png') }}" alt=""></div>
+            <div class="col-sm-8 text-right">
                 <ul>
                     {% if app.user %}
                         {% if is_granted('ROLE_ADMIN') %}
@@ -16,14 +16,17 @@
                         <li><a href="{{ path('user_show',{"id": app.user.id} )}}">Profile</a></li>
                         <li><a href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i> Log out</a></li>
                     {% else %}
-                        <li><a href="{{ path('app_register') }}">Inscription</a></li>
-                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
-                        <li><a href="{{ path('prospectBoard_index') }}">Etat de votre demande</a></li>
+                        <li><a href="{{ path('app_register') }}"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ path('app_login') }}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ path('prospectBoard_index') }}"><i class="fa fa-exchange fa-lg" aria-hidden="true"></i></a></li>
                     {% endif %}
                 </ul>
 
+
             </div>
+
             <div class="col-sm-12">{% include 'default/_menu.html.twig' %}</div>
+
         </div>
     </header>
     <div class="row main">
