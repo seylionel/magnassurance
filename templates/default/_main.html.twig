@@ -1,62 +1,61 @@
-<div class="col-6 box">
+{% form_theme formMain 'bootstrap_4_layout.html.twig' %}
 
-    <img src="https://dummyimage.com/200" alt="partenaires" title="image-des-partenaires">
+<div class="col-6 px-0">
+    <div class="container">
+    <div class="row px-0">
+        <div class="col-md-12 px-0  bg-dark text-white"><h3 class="text-center">Nos partenaires</h3></div>
+        <div class="col-md-12 px-0"><img src="{{ asset('build/images/new-b.png') }}" class="img-fluid px-0" alt=""></div>
 
-</div>
-<div class="col-6 box align-self-center">
-    <div class="top text-center ">
-        <div>
-            <form action="{{ path('car_choice') }}" method="post">
-                <div class="form-example ">
-                    <input type="text" placeholder="Nom de famille" name="firstName" id="firstname" required>
-                </div>
-            </form>
-        </div>
-        <div>
-            <div>
-                <input type="text" id="lastname" name="lastName" placeholder="Prénom">
-            </div>
-        </div>
-        <div>
-            <div>
-                <label for="start">Date de naissance</label>
-                <input type="date" id="start" name="trip-start"
-                       value="2018-07-22"
-                       min="2018-01-01" max="2018-12-31">
-            </div>
-        </div>
-        <div>
-            <div>
-                <input type="tel" id="Phone" name="Phone" placeholder="Fix/portable">
-            </div>
-        </div>
-        <div>
-            <div>
-                <input type="text" id="city" name="City" placeholder="Ville">
-            </div>
-        </div>
-        <div class="displayCheck">
-            <div>
-                <input type="checkbox" id="house" name="House">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <input type="checkbox" id="prévoyance" name="Prévoyance">
-                <i class="fa fa-umbrella" aria-hidden="true"></i>
-                <input type="checkbox" id="car" name="Car">
-                <i class="fa fa-car" aria-hidden="true"></i>
-
-            </div>
-        </div>
-
-
-        <div class="btn-group-toggle " data-toggle="buttons">
-            <label class="btn btn-secondary active btn-block">
-                <input type="checkbox" checked autocomplete="off">Commencez !
-            </label>
-        </div>
-        </form>
+    </div>
     </div>
 </div>
+<div class="col-2"></div>
+<div class="col-2 ">
+
+    {{ form_start(formMain) }}
+        <div class="slider ">
+
+
+            <div class="slider-item">
+                {{ form_row((formMain.lastName)) }}
+            </div>
+            <div class="slider-item">
+                {{ form_row((formMain.firstName)) }}
+            </div>
+
+            <div class="slider-item justify-content-center">
+                {{ form_row((formMain.birthdate)) }}
+            </div>
+            <div class="slider-item">
+                {{ form_row((formMain.email)) }}
+            </div>
+            <div class="slider-item">
+                {{ form_row((formMain.phoneNumber)) }}
+            </div>
+            <div class="slider-item">
+                {{ form_row((formMain.city)) }}
+            </div>
+
+
+            <div class="slider-item">
+                <button class="btn btn-danger">{{ button_label|default('Envoyer') }}</button>
+            </div>
+        </div>
+
+
+    {{ form_end(formMain) }}
+
+</div>
+<div class="col-2"></div>
 <div class="col-12 box"><img src="https://dummyimage.com/533x100" alt="partenaires"></div>
 
 
-
+{# {{ form_start(formMain) }}
+        {{ form_row((formMain.lastName)) }}
+        {{ form_row((formMain.firstName)) }}
+        {{ form_row((formMain.birthdate)) }}
+        {{ form_row((formMain.email)) }}
+        {{ form_row((formMain.phoneNumber)) }}
+        {{ form_row((formMain.city)) }}
+        <button class="btn btn-danger">{{ button_label|default('Envoyer') }}</button>
+        {{ form_end(formMain) }}   #}

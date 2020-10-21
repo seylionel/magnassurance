@@ -14,4 +14,59 @@
             </li>
         </ul>
     </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Assurance habitation </a>
+                <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item waves-effect waves-light" href="{{ path('prospect_new') }}">assurance prêt</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">assurance scolaire</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">assurance équipemement</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Assurance automobile</a>
+                <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item waves-effect waves-light" href="{{ path('prospect_new') }}">assurance automobile</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">assurance 2 roues</a>
+                    <a class="dropdown-item waves-effect waves-light" href="#">assurance autres véhicules</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Partenariat</a>
+                <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
+                    {% if app.user %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="dropdown-item waves-effect waves-light" href="{{ path('admin') }}"><i class="fa fa-cogs"></i> Administration</a>
+                    {% endif %}
+                    <a class="dropdown-item waves-effect waves-light" href="{{ path('user_show',{"id": app.user.id} )}}">Profile</a>
+                    <a class="dropdown-item waves-effect waves-light" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i> Log out</a>
+                    {% else %}
+                    <a class="dropdown-item waves-effect waves-light" href="{{ path('app_register') }}"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>Inscriptions intermédiaires</a>
+                    <a class="dropdown-item waves-effect waves-light" href="{{ path('app_login') }}"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>Connexion</a>
+            {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-danger btn-light rounded">
+        <a class="dropdown-item waves-effect waves-light" href="{{ path('prospectBoard_index') }}"><i class="fa fa-exchange fa-lg" aria-hidden="true"></i>Suivi de votre devis</a>
+    </div>
 </nav>

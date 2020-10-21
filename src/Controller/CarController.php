@@ -90,6 +90,7 @@ class CarController extends AbstractController
         return $this->render('car/new.html.twig', [
             'car' => $car,
             'form' => $form->createView(),
+
         ]);
     }
 

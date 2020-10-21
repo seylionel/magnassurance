@@ -20,26 +20,19 @@ console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 
 $(document).ready(function () {
-    $('.top').slick({
+    $('.slider').slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         adaptiveHeight: true,
 
 
-        prevArrow:"<div class='test'><span class='myarrow'><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i></span></div>",
-        nextArrow:"<div class='test2'><span class='myOtherarrow'><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></span></div>"
+        prevArrow:"<div class='prevArrow'><i class=\"fa fa-arrow-circle-left fa-lg\" aria-hidden=\"true\"></i></div>",
+        nextArrow:"<div class='nextArrow'><i class=\"fa fa-arrow-circle-right fa-lg\" aria-hidden=\"true\"></i></div>"
 
     });
 });
 
 
 
-
-$('.listonglet li').mouseenter(function (){
-    $(this).children('.deroulant').css('display','block')
-})
-$('.listonglet li').mouseleave(function (){
-    $(this).children('.deroulant').css('display','none')
-})
 
