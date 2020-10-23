@@ -191,8 +191,10 @@ class User implements UserInterface
      */
     public function getAgencies(): Collection
     {
+
         return $this->agencies;
     }
+
 
     public function addAgency(Agency $agency): self
     {

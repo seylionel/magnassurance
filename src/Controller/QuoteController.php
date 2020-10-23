@@ -39,7 +39,14 @@ class QuoteController extends AbstractController
             $entityManager->persist($quote);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_infoProspects',['id'=>$quote->getId()]);
+            return $this->redirectToRoute('user_infoProspects', ['id'=>$quote->getId()]);
+        }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($quote);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('user_show', ['id'=>$quote->getId()]);
         }
 
         return $this->render('quote/new.html.twig', [

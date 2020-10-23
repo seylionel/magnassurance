@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Agency;
 use App\Entity\City;
 use App\Entity\User;
 use App\Entity\Prospect;
 use App\Form\UserType;
+use App\Repository\AgencyRepository;
 use App\Repository\QuoteRepository;
 use App\Repository\UserRepository;
 use App\Repository\ProspectRepository;
@@ -26,6 +28,7 @@ class UserController extends AbstractController
      */
     public function index(UserRepository $userRepository, ProspectRepository $prospectRepository): Response
     {
+
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
             'prospects' => $prospectRepository->findAll(),
@@ -70,12 +73,18 @@ class UserController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Route("/{id}", name="user_show", methods={"GET","POST"})
      */
-    public function show(User $user): Response
+    public function show(User $user, QuoteRepository $quoteRepository, AgencyRepository $agencyRepository): Response
     {
+
+
+
+
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'quotes'=>$quoteRepository
+
         ]);
     }
 

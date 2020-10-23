@@ -2,31 +2,11 @@
 <div class="container">
 {{ form_start(form) }}
 
-{{ form_row(form.model,{
-    'attr': {
-        'placeholder':'206'
-    }
-}) }}
-{{ form_row(form.brand,{
-    'attr': {
-        'placeholder':'Peugeot'
-    }
-}) }}
-{{ form_row(form.power,{
-    'attr': {
-        'placeholder':'3'
-    }
-}) }}
-{{ form_row(form.gas,{
-    'attr': {
-        'placeholder':'Essence'
-    }
-}) }}
-{{ form_row(form.registration,{
-    'attr': {
-        'placeholder':'AHT-203-BRC'
-    }
-}) }}
+{{ form_row(form.model,{ 'label': 'Modèle' }) }}
+{{ form_row(form.brand,{ 'label': 'Marque' }) }}
+{{ form_row(form.power,{ 'label': 'Puissance fiscale' }) }}
+{{ form_row(form.gas,{ 'label': 'Carburant' }) }}
+{{ form_row(form.registration,{ 'label': 'Immatriculation' }) }}
 {{ form_row(form.insuranceExist,{ 'label': 'Etes-vous déjà assuré ?'}) }}
 
 <button class="btn btn-danger">{{ button_label|default('Envoyer') }}</button>

@@ -3,37 +3,38 @@
 <div class="col-6 px-0">
     <div class="container">
     <div class="row px-0">
-        <div class="col-md-12 px-0  bg-dark text-white"><h3 class="text-center">Nos partenaires</h3></div>
+        <div class="col-md-12 px-0  bg-dark text-white rounded "><h3 class="text-center">Nos partenaires</h3></div>
         <div class="col-md-12 px-0"><img src="{{ asset('build/images/new-b.png') }}" class="img-fluid px-0" alt=""></div>
 
     </div>
     </div>
 </div>
-<div class="col-2"></div>
-<div class="col-2 ">
+<div class="col-1"></div>
+<div class="col-4 h-75 rounded box border-light">
 
+<p class="text-center text-uppercase font-weight-bold text-white btn-dark rounded">Faites rapidement votre devis en remplissant le formulaire :</p>
     {{ form_start(formMain) }}
         <div class="slider ">
 
 
             <div class="slider-item">
-                {{ form_row((formMain.lastName)) }}
+                {{ form_row(formMain.lastName,{ 'label': 'Nom' }) }}
             </div>
             <div class="slider-item">
-                {{ form_row((formMain.firstName)) }}
+                {{ form_row(formMain.firstName,{ 'label': 'Prénom' }) }}
             </div>
 
             <div class="slider-item justify-content-center">
-                {{ form_row((formMain.birthdate)) }}
+                {{ form_row(formMain.birthdate,{ 'label': 'Date de naissance' }) }}
             </div>
             <div class="slider-item">
-                {{ form_row((formMain.email)) }}
+                {{ form_row(formMain.email,{ 'label': 'Email' }) }}
             </div>
             <div class="slider-item">
-                {{ form_row((formMain.phoneNumber)) }}
+                {{ form_row(formMain.phoneNumber,{ 'label': 'Numéro de téléphone' }) }}
             </div>
             <div class="slider-item">
-                {{ form_row((formMain.city)) }}
+                {{ form_row(formMain.city,{ 'label': 'Ville' }) }}
             </div>
 
 
@@ -46,8 +47,30 @@
     {{ form_end(formMain) }}
 
 </div>
-<div class="col-2"></div>
-<div class="col-12 box"><img src="https://dummyimage.com/533x100" alt="partenaires"></div>
+
+<div class="col-12 box text-center ">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-4 box">
+        <h2 id="gagnez-sur-toutes-vos-assurances">Gagnez sur toutes vos assurances</h2>
+        <div class="text-section">
+            <p><strong>Vous êtes perdu parmi tous les devis d'assurance ? Alors vous êtes au bon endroit !</strong></p>
+            <p>Sur magn'assurances, vous comparez sans effort des milliers de devis d'assurance et notre moteur vous présente les plus pertinents. Vous contactez ensuite le partenaire de votre choix et bénéficiez de ses conseils.</p>
+            <p>Vous souhaitez changer d'assurance auto ou assurer votre nouvelle voiture ? Notre comparateur d'assurance automobile vous permettra d'économiser en moyenne 308€* par an sans compromis sur les garanties !</p>
+            <p>Vous être plutôt deux roues ? Trouvez l'assurance moto qu'il vous faut grâce à l'expertise de nos partenaires et roulez l'esprit tranquille.</p>
+            <p>La protection de votre logement passe avant tout ? Sur notre site, vous trouverez des solutions </p>
+            <p>Vous êtes à la recherche d'une assurance habitation pour votre maison, votre appartement ou votre résidence secondaire ? Que vous soyez locataire ou propriétaire, vous trouverez des offres avantageuses sur notre site.  </p>
+            <p>Votre priorité, c'est la santé ? Pas de problème ! Nos partenaires en  répondront à tous vos besoins. Et pour vous garantir la meilleure couverture, nos partenaires sont aussi des spécialistes de l'assurance professionnelle, de l'assurance scolaire et de la prévoyance.  </p>
+            <p>Sans oublier vos compagnons à quatre pattes que nous protégeons aussi au meilleur prix grâce à notre comparateur d’assurance animaux.</p>
+            <p>Et si vous pensez que résilier une assurance ou un abonnement c'est trop compliqué, nous sommes là aussi pour vous aider ! Notre service de résiliation vous propose des modèles de lettres de résiliation à personnaliser et les envoie pour vous.</p>
+            <p>Alors, on assure non ?</p>
+        </div>
+        </div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+    </div>
+</div>
 
 
 {# {{ form_start(formMain) }}
