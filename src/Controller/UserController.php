@@ -89,23 +89,6 @@ class UserController extends AbstractController
     }
 
 
-/*    ("/infoProspect/{id_city}", name="user_infoProspects", methods={"GET","POST"})
-   ("city", expr="repository.find(id_city)")
-
-    public function getInfo(City $city,ProspectRepository $prospectRepository): Response
-    {
-        $peopleOfCity = $city->getProspects();
-
-        return $this->render('user/_infoProspect.html.twig', [
-                "people" => $peopleOfCity
-
-
-            ]
-
-        );
-
-    }*/
-
 
 
 

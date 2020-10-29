@@ -35,7 +35,7 @@ class ProspectBoardController extends AbstractController
         if ($form->isSubmitted()) {
             $searchProspect = $prospectRepository->findOneByGuid($prospect->getGuid());
             if ($searchProspect !== null) {
-                return $this->redirectToRoute('guid_dashboard');
+                return $this->redirectToRoute('guid_dashboard',['guid' => $prospect->getGuid()]);
             }
         }
 

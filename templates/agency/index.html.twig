@@ -3,26 +3,23 @@
 {% block title %}Agency index{% endblock %}
 
 {% block body %}
-    <h1>Agency index</h1>
+    <h1>Vos agences</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>PhoneNumber</th>
+                <th>Nom de l'agence</th>
+                <th>Numéro de télépone</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for agency in agencies %}
             <tr>
-                <td>{{ agency.id }}</td>
                 <td>{{ agency.name }}</td>
                 <td>{{ agency.phoneNumber }}</td>
                 <td>
-                    <a href="{{ path('agency_show', {'id': agency.id}) }}">show</a>
-                    <a href="{{ path('agency_edit', {'id': agency.id}) }}">edit</a>
+                    <a href="{{ path('agency_edit', {'id': agency.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +30,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('agency_new') }}">Create new</a>
+    <a href="{{ path('default') }}">Retour</a>
+
 {% endblock %}

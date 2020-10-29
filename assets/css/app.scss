@@ -3,8 +3,15 @@
 @import "~font-awesome";
 @import "~bootstrap";
 
+/**all pages**/
 
-
+html,body{
+  background-color: #a7ffa2;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Roboto, sans-serif;
+}
 
 
 
@@ -14,13 +21,14 @@ header{
 
 }
 
+h1{
+  color: red;
+  font-family: Roboto, sans-serif;
+}
 
+ul {
+  list-style: none;
 
-html,body{
-  background-color: #a7ffa2;
-  height: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
 .box{
@@ -50,7 +58,6 @@ footer{
 }
 
 
-
 .main{
   margin-top: 10rem;
   background-color: #a7ffa2;
@@ -65,36 +72,17 @@ footer{
 
 
 
+/**carrousel**/
 
-.slider{
-}
 
 .slider .prevArrow{
   font-size: 2rem;
-
-
-
-
-
 }
 .slider .nextArrow{
   font-size: 2rem;
 
 }
 
-
-
-
-
-h1{
-  color: red;
-}
-
-
-
-ul {
-  list-style: none;
-}
 
 /**DASHBOARD**/
 
