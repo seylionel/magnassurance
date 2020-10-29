@@ -7,6 +7,7 @@ use App\Entity\Prospect;
 use App\Form\ProspectType;
 use App\Repository\ProspectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,7 +26,9 @@ class ProspectBoardController extends AbstractController
 
         $prospect = new Prospect();
         $form = $this->createFormBuilder($prospect)
-            ->add('guid')
+            ->add('guid', TextType::class, [
+                'label' => 'Identifiant',
+            ])
             ->getForm();
         $form->handleRequest($request);
 

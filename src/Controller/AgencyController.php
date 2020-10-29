@@ -36,7 +36,7 @@ class AgencyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $agency->setUser($this->getUser()); // Associer la nouvelle agence à l'utilisateur connecté
+              // Associer la nouvelle agence à l'utilisateur connecté
             $entityManager->persist($agency);
             $entityManager->flush();
 
