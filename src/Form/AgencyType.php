@@ -16,6 +16,7 @@ class AgencyType extends AbstractType
             ->add('phoneNumber')
             ->add('city')
             ->add('cities')
+            ->add('user')
         ;
     }
 

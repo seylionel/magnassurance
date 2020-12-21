@@ -49,7 +49,6 @@ class ProspectController extends AbstractController
             $prospect->setGuid(substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 8));
 
 
-            //si la city entrée est égale à la city d'une agence alors envoi la city dans cette agence
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($prospect);
             //TODO: boucle: tant que le GUID existe générer un nouveau guid
@@ -69,6 +68,9 @@ class ProspectController extends AbstractController
      */
     public function show(Prospect $prospect): Response
     {
+
+
+
         return $this->render('prospect/show.html.twig', [
             'prospect' => $prospect,
         ]);

@@ -1,22 +1,31 @@
 <?php
 
+
+
 namespace App\Controller;
 
 use App\Entity\Agency;
+use App\Entity\Car;
 use App\Entity\City;
+use App\Entity\Quote;
 use App\Entity\User;
 use App\Entity\Prospect;
 use App\Form\UserType;
 use App\Repository\AgencyRepository;
+use App\Repository\CarRepository;
 use App\Repository\QuoteRepository;
 use App\Repository\UserRepository;
 use App\Repository\ProspectRepository;
+use Doctrine\ORM\Query\Expr\Select;
 use PhpParser\Node\Expr\New_;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
+
 
 /**
  * @Route("/user")
@@ -71,14 +80,30 @@ class UserController extends AbstractController
         return $this->render('user/_infoProspect.html.twig');
     }
 
+    /**
+     * @Route("/individualQuote/{id}", name="user_individualQuote", methods={"GET","POST"})
+     *
+     **/
+    public function getIndividualQuote(Prospect $prospect): Response
+    {
+
+
+        return $this->render('user/_individualQuote.html.twig', [
+            'prospects' => $prospect,
+
+
+
+        ]);
+    }
+
+
+
 
     /**
      * @Route("/{id}", name="user_show", methods={"GET","POST"})
      */
     public function show(User $user, QuoteRepository $quoteRepository, AgencyRepository $agencyRepository): Response
     {
-
-
 
 
         return $this->render('user/show.html.twig', [

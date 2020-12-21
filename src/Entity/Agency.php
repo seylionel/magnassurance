@@ -88,6 +88,8 @@ class Agency
 
     public function getUser(): ?User
     {
+
+
         return $this->user;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Agency;
+use App\Entity\User;
 use App\Form\AgencyType;
 use App\Repository\AgencyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

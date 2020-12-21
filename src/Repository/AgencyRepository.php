@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Agency;
 use App\Entity\City;
+use App\Entity\Quote;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use function Doctrine\ORM\QueryBuilder;
@@ -26,6 +27,7 @@ class AgencyRepository extends ServiceEntityRepository
     //  */
     public function findAllWithCreditsInCity(City $city)
     {
+        /*fonction spécial pour envoyer les devis aux agence qui ont du crédit*/
         $qb = $this->createQueryBuilder('agency');
 
         return $qb
@@ -40,6 +42,10 @@ class AgencyRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+            /* je dois trouver le nbre de devis totals créés pour l'agence A ayant la ville 1*/
+
+
 
     /*
     public function findOneBySomeField($value): ?Agency
